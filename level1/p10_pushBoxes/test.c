@@ -4,6 +4,9 @@ int map[8][8];
 int main (){
     FILE *fp=NULL;
     fp=fopen("C://Users//ZYW//temp//map1.txt","r");
+    
+    FILE *filep =NULL;
+    filep = fopen("C://Users//ZYW//temp//grade.txt","a+");
 
     if(fp==NULL){
         printf("失败\n");
@@ -21,6 +24,13 @@ int main (){
             printf("\n");
         }
     }
+
+    int i=0;
+    fprintf(filep,"第%d局的步数是%d",i,i);
+
+
+
+
     system("pause");
     return 0;
 }
