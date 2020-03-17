@@ -2,6 +2,12 @@
 #include<Windows.h>
 int map[8][8];
 int main (){
+
+
+
+    printf("⊙●◎○▲△☉☆★ █ ■〇▼▽△▲◆◇○◎●◢◣■\n");
+    printf("111111111111111111111111111111111111111");
+
     FILE *fp=NULL;
     fp=fopen("C://Users//ZYW//temp//map1.txt","r");
     
