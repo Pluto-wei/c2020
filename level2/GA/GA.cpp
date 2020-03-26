@@ -11,9 +11,9 @@ using namespace std;
 #define MAPH 100 //高
 #define MAPW 100 //宽
 #define PLAYERSNUMBER 10000 //每代个数
-#define FATHER 100 //父代个数
-#define GENESNUMBER 5000 //gene个数，走的最多步数
-#define Evolution 100 //进化代数
+#define FATHER 50 //父代个数   //越少优化结果越好
+#define GENESNUMBER 80 //gene个数，走的最多步数   //设置多了优化不了，不能太多
+#define Evolution 200 //进化代数   //感觉后100代都没用
 HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 
 struct {
@@ -61,7 +61,6 @@ int main(){
         evolution();
         adaptionCal();
         printf("%d %d\n",Greatest.step,Greatest.adapt);
-        // 测试遗传情况，发现优化的好慢！！步数居高不下,不知道有没有什么好方法
     }
     finish = clock();
     duration = (double)(finish-start)/CLOCKS_PER_SEC;
@@ -169,7 +168,6 @@ void adaptionCal(){ //第num个player
             Greatest.adapt=players[i].adapt;
             Greatest.step=players[i].step;
         }
-
     }
 }
 
@@ -190,7 +188,7 @@ void evolution(){
             dad=rand()%FATHER,mom=rand()%FATHER;
         }while(dad==mom);
         int temp=rand()%GENESNUMBER;
-        //这个优化更慢
+        //这个不行
         // for(int i=0;i<GENESNUMBER;i++){
         //     sons[num].gene[i]=(players[mom].gene[i]+players[dad].gene[i])%4;
         // }
